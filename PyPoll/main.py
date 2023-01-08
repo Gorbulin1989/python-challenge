@@ -3,7 +3,7 @@ import os
 # Module for reading CSV files
 import csv
 csvpath = os.path.join("PyPoll/resources/election_data.csv")
-# initialize variables
+# Set and Initialize variables
 total_votes = 0
 candidates = {}
 
@@ -30,8 +30,6 @@ with open(csvpath) as csvfile:
         else:
             candidates[candidate] += 1
 
-
-
 # Determine the winner of the election
 winner = max(candidates, key=candidates.get)
 # Print results
@@ -39,7 +37,7 @@ print("Election Results" + "\n")
 print("-----------"+ "\n")
 print("Total Votes:  " + str(total_votes)+ "\n")
 print("-----------"+ "\n")
-# Calculate the percentage of votes for each candidate
+# Calculate the percentage of votes for each candidate and print results
 for candidate, votes in candidates.items():
     percentage = votes / total_votes * 100
     print(f'{candidate}: {percentage:.3f}% ({votes} votes)' +"\n")
@@ -48,7 +46,7 @@ print(f'Winner : {winner}'+"\n")
 print("------------"+ "\n")
 
 # open text file in write mode
-with open("results.txt", "w") as textfile:
+with open("results_PyPoll.txt", "w") as textfile:
     # write results to the text file
     textfile.write("Election Results" + "\n")
     textfile.write("Total Votes:" + str(total_votes) + "\n")
